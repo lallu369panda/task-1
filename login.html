@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1 Project - Contributor Portal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 450px;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            color: #667eea;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .logo p {
+            color: #6c757d;
+            margin: 10px 0 0 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .skill-tag {
+            background: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .skill-tag.selected {
+            background: #667eea;
+            color: white;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #764ba2;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 10px;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .welcome-message {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>🚀 Task-1</h1>
+            <p>Contributor Portal</p>
+        </div>
+
+        <div class="welcome-message">
+            <h3>Welcome, Future Contributor! 👋</h3>
+            <p>Join our community of developers and help make Task-1 even better. Fill out the form below to get started with your contribution journey.</p>
+        </div>
+
+        <form id="contributorForm">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="github">GitHub Username *</label>
+                <input type="text" id="github" name="github" required placeholder="Enter your GitHub username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Experience Level</label>
+                <select id="experience" name="experience">
+                    <option value="">Select your experience level</option>
+                    <option value="beginner">Beginner (0-1 years)</option>
+                    <option value="intermediate">Intermediate (2-4 years)</option>
+                    <option value="advanced">Advanced (5+ years)</option>
+                    <option value="expert">Expert (10+ years)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Programming Skills</label>
+                <p style="font-size: 14px; color: #6c757d; margin: 5px 0;">Click to select your skills:</p>
+                <div class="skills-container">
+                    <div class="skill-tag" data-skill="java">Java</div>
+                    <div class="skill-tag" data-skill="python">Python</div>
+                    <div class="skill-tag" data-skill="html">HTML</div>
+                    <div class="skill-tag" data-skill="css">CSS</div>
+                    <div class="skill-tag" data-skill="javascript">JavaScript</div>
+                    <div class="skill-tag" data-skill="git">Git</div>
+                    <div class="skill-tag" data-skill="testing">Testing</div>
+                    <div class="skill-tag" data-skill="documentation">Documentation</div>
+                </div>
+                <input type="hidden" id="skills" name="skills">
+            </div>
+
+            <div class="form-group">
+                <label for="interests">Contribution Interests</label>
+                <textarea id="interests" name="interests" placeholder="What would you like to contribute? (e.g., bug fixes, new features, documentation, tests)"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Introduction Message</label>
+                <textarea id="message" name="message" placeholder="Tell us a bit about yourself and why you're interested in contributing to Task-1"></textarea>
+            </div>
+
+            <button type="submit" class="btn">🎉 Join as Contributor</button>
+        </form>
+
+        <button onclick="window.location.href='index.html'" class="btn btn-secondary">← Back to Home</button>
+
+        <div class="links">
+            <a href="https://github.com/lallu369panda/task-1">View Repository</a>
+            <a href="https://github.com/lallu369panda/task-1/blob/main/CONTRIBUTING.md">Contribution Guide</a>
+            <a href="https://github.com/lallu369panda/task-1/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </div>
+    </div>
+
+    <script>
+        // Handle skill selection
+        const skillTags = document.querySelectorAll('.skill-tag');
+        const skillsInput = document.getElementById('skills');
+        let selectedSkills = [];
+
+        skillTags.forEach(tag => {
+            tag.addEventListener('click', function() {
+                const skill = this.dataset.skill;
+                
+                if (this.classList.contains('selected')) {
+                    this.classList.remove('selected');
+                    selectedSkills = selectedSkills.filter(s => s !== skill);
+                } else {
+                    this.classList.add('selected');
+                    selectedSkills.push(skill);
+                }
+                
+                skillsInput.value = selectedSkills.join(',');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('contributorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const contributorData = {
+                name: formData.get('name'),
+                github: formData.get('github'),
+                email: formData.get('email'),
+                experience: formData.get('experience'),
+                skills: selectedSkills,
+                interests: formData.get('interests'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Simulate successful registration
+            alert(`Welcome to Task-1, ${contributorData.name}! 🎉\n\nThank you for joining our contributor community. Check out our GitHub repository to find issues you can work on.\n\nHappy coding!`);
+            
+            // In a real application, you would send this data to a server
+            console.log('New contributor registered:', contributorData);
+            
+            // Redirect to GitHub repository
+            setTimeout(() => {
+                window.open('https://github.com/lallu369panda/task-1', '_blank');
+            }, 2000);
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                    this.parentElement.style.transition = 'transform 0.2s';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
