@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1 Project - Welcome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            background: #f8f9ff;
+        }
+        .languages {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .language-card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 150px;
+        }
+        .language-card h3 {
+            color: #667eea;
+            margin: 0 0 10px 0;
+        }
+        .cta-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #764ba2;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Task-1 Project</h1>
+            <p>A Multi-Language Contribution Repository</p>
+        </div>
+
+        <div class="section">
+            <h2>Welcome Contributors!</h2>
+            <p>
+                Thank you for your interest in the Task-1 project! This repository is designed to 
+                welcome contributions from developers of all skill levels and backgrounds. Whether 
+                you're a beginner looking to make your first contribution or an experienced developer 
+                wanting to share your expertise, there's a place for you here.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Project Languages</h2>
+            <div class="languages">
+                <div class="language-card">
+                    <h3>☕ Java</h3>
+                    <p>Backend logic and core functionality</p>
+                </div>
+                <div class="language-card">
+                    <h3>🐍 Python</h3>
+                    <p>Data processing and automation scripts</p>
+                </div>
+                <div class="language-card">
+                    <h3>🌐 HTML</h3>
+                    <p>Frontend web interfaces</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Getting Started</h2>
+            <ol>
+                <li><strong>Fork the repository</strong> on GitHub</li>
+                <li><strong>Clone your fork</strong> to your local machine</li>
+                <li><strong>Read the documentation</strong> (README.md and CONTRIBUTING.md)</li>
+                <li><strong>Choose an issue</strong> or suggest a new feature</li>
+                <li><strong>Make your changes</strong> following our guidelines</li>
+                <li><strong>Submit a pull request</strong> with a clear description</li>
+            </ol>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="login.html" class="btn">👤 Contributor Login</a>
+            <a href="https://github.com/lallu369panda/task-1" class="btn btn-secondary">📂 View on GitHub</a>
+        </div>
+
+        <div class="section">
+            <h2>What You Can Contribute</h2>
+            <ul>
+                <li>🐛 Bug fixes and improvements</li>
+                <li>✨ New features and enhancements</li>
+                <li>📚 Documentation updates</li>
+                <li>🧪 Tests and test coverage</li>
+                <li>🎨 UI/UX improvements</li>
+                <li>🔧 Performance optimizations</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>
+                Made with ❤️ by the Task-1 community | 
+                <a href="https://github.com/lallu369panda/task-1/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> | 
+                <a href="https://github.com/lallu369panda/task-1/blob/main/LICENSE">MIT License</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactive welcome message
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Welcome to Task-1 Project!');
+            console.log('Check out our GitHub repository for contribution opportunities.');
+            
+            // Add some interactivity to language cards
+            const languageCards = document.querySelectorAll('.language-card');
+            languageCards.forEach(card => {
+                card.addEventListener('mouseover', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s';
+                });
+                
+                card.addEventListener('mouseout', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
